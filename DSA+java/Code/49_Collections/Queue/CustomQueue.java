@@ -4,11 +4,11 @@ public class CustomQueue{
 
     int[] arr=new int[capacity];
 
-    public int size(){
+    public int size(){  //O(1)
         return nel;
     }
 
-    public void add(int data){
+    public void add(int data){//O(1)
         if(nel==arr.length) grow();
         arr[nel++]=data;
     }
@@ -22,7 +22,7 @@ public class CustomQueue{
         arr=temp;
     }
 
-    public int peek(){
+    public int peek(){//O(1)
         if(isEmpty()){
             System.out.print("nullValue");
             return 0;
@@ -30,21 +30,21 @@ public class CustomQueue{
         return arr[0];
     }
 
-    public int element(){
+    public int element(){//O(1)
         if(isEmpty()){
             System.out.print("ERROR:noSuchElement");
             return -1;
         }
         return arr[0];
     }
-    private boolean isEmpty(){
+    private boolean isEmpty(){//O(1)
         if(nel==0) return true;
         return false;
     }
 
-    public int remove(){
+    public int remove(){//O(1)
         if(isEmpty()){
-            System.out.print("Null Value");
+            System.out.print("Error");
             return -1;
         }
         int value=arr[0];
