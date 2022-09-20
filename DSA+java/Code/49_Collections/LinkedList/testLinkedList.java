@@ -13,5 +13,7 @@ public class testLinkedList{
         System.out.println(ll.getFirst());
         System.out.println(ll.getlast());
         System.out.println(ll.getAt(10000));
+        ll.removeLast();
+        ll.display();
     }
 }

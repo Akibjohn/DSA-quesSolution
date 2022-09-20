@@ -7,7 +7,6 @@ public class CustomLinkedList {
             this.data = data;
             this.next = next;
         }
-
     }
 
     Node head;
@@ -82,17 +81,30 @@ public class CustomLinkedList {
             size--;
         }
     }
-    // public void removeLast(){
-    // if(size==0) System.out.println("Error: Invalid");
-    // if(size==1){
-    // head=null;
-    // tail=null;
-    // size=0;
-    // }
-    // else{
-
-    // }
-    // }
+    public void removeLast(){
+        if(size == 0){
+            System.out.println("Empty");
+            return;
+        }
+        if(size == 1){
+            head = null;
+            tail = null;
+            size = 0;
+        }
+        else{
+            // LinkedList  1->2->3->4->5
+            // head = 1, tail = 5
+            // 1 2, 2 3 , 3 4,4 5
+            // 4->null
+            Node sl = head; // second last
+            while(sl.next != tail){
+                sl = sl.next;
+            }
+            sl.next = null;
+            tail = sl;
+            size--;
+        }
+    }
     public int getAt(int idx) {
         if (size == 0) {
             System.out.println("List is empty");
