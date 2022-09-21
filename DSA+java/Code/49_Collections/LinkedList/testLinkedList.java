@@ -15,5 +15,7 @@ public class testLinkedList{
         System.out.println(ll.getAt(10000));
         ll.removeLast();
         ll.display();
+        ll.addAt(2, 5);
+        ll.display();
     }
 }

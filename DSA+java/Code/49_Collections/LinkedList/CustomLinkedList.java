@@ -81,23 +81,22 @@ public class CustomLinkedList {
             size--;
         }
     }
-    public void removeLast(){
-        if(size == 0){
+
+    public void removeLast() {
+        if (size == 0) {
             System.out.println("Empty");
             return;
         }
-        if(size == 1){
+        if (size == 1) {
             head = null;
             tail = null;
             size = 0;
-        }
-        else{
-            // LinkedList  1->2->3->4->5
-            // head = 1, tail = 5
-            // 1 2, 2 3 , 3 4,4 5
-            // 4->null
+        } else {
+            // LinkedList 1->2->3->4->5
+            // head = 1, tail = 5,size = 5
+            // sl = 1,
             Node sl = head; // second last
-            while(sl.next != tail){
+            while (sl.next != tail) {
                 sl = sl.next;
             }
             sl.next = null;
@@ -105,6 +104,7 @@ public class CustomLinkedList {
             size--;
         }
     }
+
     public int getAt(int idx) {
         if (size == 0) {
             System.out.println("List is empty");
@@ -120,10 +120,30 @@ public class CustomLinkedList {
         return temp.data;
 
     }
-    public void addAt(int idx, int data){
-        
-       
 
+    public void addAt(int idx, int data) {
+        if (idx < 0 && idx > this.size) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        if (idx == 0) {
+            addFirst(data);
+            return;
+        }
+        if(idx==this.size){
+            addLast(data);
+            return;
+        }
+        Node temp=head;
+        for(int i=0;i<idx-1;i++){
+            temp=temp.next;
+        }
+        Node first=temp;
+        Node second=temp.next;
+        Node tba =new Node(data, null);
+        tba.next=second;
+        first.next=tba;
+        size++;
     }
 
 }
