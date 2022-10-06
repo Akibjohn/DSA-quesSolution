@@ -146,4 +146,15 @@ public class CustomLinkedList {
         size++;
     }
 
+    public int getKthFromLast(int k){
+        Node s=head;
+        Node e=head;
+        for(int i=0;i<k;i++) e=e.next;
+        while(e.next!=null){
+            s=s.next;
+            e=e.next;
+        }
+        return s.data;
+    }
+
 }
